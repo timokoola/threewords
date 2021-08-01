@@ -1,0 +1,6 @@
+{
+    "tags": "posts",
+    "layout": "page",
+    "permalink": "/post/{{ page.fileSlug }}/"
+  }
+  
