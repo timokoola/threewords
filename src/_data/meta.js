@@ -1,7 +1,7 @@
 module.exports = {
   url: process.env.URL || "http://localhost:8080",
-  siteName: "11ty Netlify Jumpstart",
+  siteName: "Three Words",
   siteDescription:
-    "Language Learning Blog of Timo Koola",
+    "A Language Learning Story of Timo Koola",
   authorName: "Timo Koola",
 };
