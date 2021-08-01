@@ -1,0 +1,14 @@
+---
+title: "Blog"
+layout: "blogs"
+description: "All the Blog Posts"
+---
+
+<div>
+      {%- for page in collections.posts -%}
+        <div>
+          <a href="{{ page.url }}">{{ page.data.title }}</a>
+          <p>{{ page.date.toLocaleDateString("en-GB") }}</p>
+        </div>
+      {%- endfor -%}
+    </div>

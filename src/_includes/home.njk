@@ -43,18 +43,7 @@ templateEngineOverride: md, njk
     </ul>
   </div>
 
-  <div class="tdbc-section">
-    <ul class="tdbc-column-container">
-      {%- for page in collections.posts -%}
-      <li class="tdbc-card">
-        <div class="tdbc-card__content">
-          <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
-          <p>{{ page.date.toLocaleDateString("en-GB") }}</p>
-        </div>
-      </li>
-      {%- endfor -%}
-    </ul>
-  </div>
+
 
 
 {{ content | safe }}
