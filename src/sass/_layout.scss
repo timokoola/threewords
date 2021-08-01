@@ -97,3 +97,9 @@ hr {
   margin-bottom: 4rem;
   border: 1px solid tdbc-color("secondary");
 }
+
+// stylelint-disable-next-line selector-max-universal
+.blog_list {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
