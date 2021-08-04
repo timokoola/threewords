@@ -4,8 +4,10 @@ layout: "blogs"
 description: "All the Blog Posts"
 ---
 
+{% set posts = collections.posts | reverse %}
+
 <div>
-      {%- for page in collections.posts -%}
+      {%- for page in posts -%}
         <div>
           <a href="{{ page.url }}">{{ page.data.title }}</a>
           <p>{{ page.date.toLocaleDateString("en-GB") }}</p>
