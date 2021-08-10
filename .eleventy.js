@@ -6,6 +6,7 @@ const pluginRss = require("@11ty/eleventy-plugin-rss");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
 const packageVersion = require("./package.json").version;
+const pinyinUtils = require("pinyin-utils");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(socialImages);
@@ -21,6 +22,18 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
+  eleventyConfig.addShortcode("pinyin", (hanzi, pinyin, definition) => {
+    const pinyined = pinyin.split(" ").map(pi => pinyinUtils.numberToMark(pi)).join(" ");//pinyinUtils.numberToMark(pinyin);
+    // version 1 uses only tag, and pinyin-utils
+    const ruby = `<ruby>
+    ${hanzi}<rp>(</rp><rt>${pinyined}</rt><rp>)</rp>
+    </ruby>`;
+    if (definition) {
+      return `<div>${ruby}</div>`;
+    } else {
+      return ruby;
+    }
+  });
 
   eleventyConfig.addFilter("slug", (str) => {
     if (!str) {
@@ -57,6 +70,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {
+    markdownTemplateEngine: "njk",
     passthroughFileCopy: true,
     dir: {
       input: "src",
