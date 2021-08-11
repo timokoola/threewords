@@ -23,13 +23,20 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
   eleventyConfig.addShortcode("pinyin", (hanzi, pinyin, definition) => {
-    const pinyined = pinyin.split(" ").map(pi => pinyinUtils.numberToMark(pi)).join(" ");//pinyinUtils.numberToMark(pinyin);
+    const pinyined = pinyin
+      .split(" ")
+      .map((pi) => pinyinUtils.numberToMark(pi))
+      .join(" "); //pinyinUtils.numberToMark(pinyin);
     // version 1 uses only tag, and pinyin-utils
     const ruby = `<ruby>
     ${hanzi}<rp>(</rp><rt>${pinyined}</rt><rp>)</rp>
     </ruby>`;
     if (definition) {
-      return `<div>${ruby}</div>`;
+      return `<dl style="display: flex; flex-direction: row;">
+      <dt>
+      ${ruby}</dt>
+      <dd style="margin-left: 1em;">${definition}</dd>
+      </dl>`;
     } else {
       return ruby;
     }
