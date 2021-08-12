@@ -20,9 +20,14 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
 
+  eleventyConfig.addCollection("myCollectionName", function(collectionApi) {
+    // get unsorted items
+    return collectionApi.getAll();
+  });
+
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
-  eleventyConfig.addShortcode("pinyin", (hanzi, pinyin, definition) => {
+  eleventyConfig.addShortcode("pinyin", function(hanzi, pinyin, definition) {
     const pinyined = pinyin
       .split(" ")
       .map((pi) => pinyinUtils.numberToMark(pi))
