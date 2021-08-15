@@ -1,0 +1,6 @@
+{
+    "tags": "tools",
+    "layout": "tool",
+    "permalink": "/tool/{{ page.fileSlug }}/"
+}
+  

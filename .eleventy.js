@@ -20,14 +20,33 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
 
-  eleventyConfig.addCollection("myCollectionName", function(collectionApi) {
+  eleventyConfig.addCollection("myCollectionName", function (collectionApi) {
     // get unsorted items
     return collectionApi.getAll();
   });
 
+  const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
+
+  eleventyConfig.addShortcode("ruDate", () => `${new Date().toLocaleDateString("ru-ru", dateOptions)}`);
+  eleventyConfig.addShortcode("zhDate", () => `${new Date().toLocaleDateString("zh-cn", dateOptions)}`);
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
-  eleventyConfig.addShortcode("pinyin", function(hanzi, pinyin, definition) {
+  eleventyConfig.addShortcode("randomGrammar", () => {
+    const grammar_ = require("./src/_data/grammar.json");
+    const item_ = grammar_[Math.floor(Math.random() * grammar_.length)];
+
+    return `<div class="tdbc-section">
+    <ul class="tdbc-column-container">
+      <li class="tdbc-card">
+        <div class="tdbc-card__content">
+          <a href="${item_.link}" class="tdbc-card__title">${item_.title}</a>
+          <p> ${item_.description}</p>
+        </div>
+      </li>
+    </ul>
+  </div>`;
+  });
+  eleventyConfig.addShortcode("pinyin", function (hanzi, pinyin, definition) {
     const pinyined = pinyin
       .split(" ")
       .map((pi) => pinyinUtils.numberToMark(pi))

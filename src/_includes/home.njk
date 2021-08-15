@@ -30,7 +30,45 @@ templateEngineOverride: md, njk
   </div>
 </header>
 <main class="tdbc-container">
+
+<div class="tdbc-section">
+    <h2 class="tdbc-card--section-header">
+      The Latest
+    </h2>
+    <ul class="tdbc-column-container">
+      {%- for page in collections.posts | reverse -%}
+      <li class="tdbc-card">
+        <div class="tdbc-card__content">
+          <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
+          <p>{{ page.date.toLocaleDateString() }}</p>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+<div class="tdbc-section">
+    <h2 class="tdbc-card--section-header">
+      Tools
+    </h2>
+    <ul class="tdbc-column-container">
+      {%- for page in collections.tools -%}
+      <li class="tdbc-card">
+        <div class="tdbc-card__content">
+          <a href="{{ page.url }}" class="tdbc-card__title">{{ page.data.title }}</a>
+          <p>{{ page.data.description }}</p>
+        </div>
+      </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+
+<hr />
+
   <div class="tdbc-section">
+    <h2 class="tdbc-card--section-header">
+      Pages
+    </h2>
     <ul class="tdbc-column-container">
       {%- for page in collections.pages -%}
       <li class="tdbc-card">
