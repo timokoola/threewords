@@ -2,6 +2,6 @@ module.exports = {
   url: process.env.URL || "http://localhost:8080",
   siteName: "Three Words",
   siteDescription:
-    "A Language Learning Story of Timo Koola",
+    "Learn Three New Words Every day",
   authorName: "Timo Koola",
 };
