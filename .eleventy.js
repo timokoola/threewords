@@ -16,9 +16,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/sass/");
 
   eleventyConfig.addPassthroughCopy("./src/css");
+  eleventyConfig.addPassthroughCopy("./src/css");
   eleventyConfig.addPassthroughCopy("./src/fonts");
   eleventyConfig.addPassthroughCopy("./src/img");
   eleventyConfig.addPassthroughCopy("./src/favicon.png");
+  eleventyConfig.addPassthroughCopy({
+    "./src/admin/config.yml": "./admin/config.yml",
+  });
 
   eleventyConfig.addCollection("myCollectionName", function (collectionApi) {
     // get unsorted items
@@ -27,8 +31,14 @@ module.exports = function (eleventyConfig) {
 
   const dateOptions = { weekday: "long", year: "numeric", month: "long", day: "numeric" };
 
-  eleventyConfig.addShortcode("ruDate", () => `${new Date().toLocaleDateString("ru-ru", dateOptions)}`);
-  eleventyConfig.addShortcode("zhDate", () => `${new Date().toLocaleDateString("zh-cn", dateOptions)}`);
+  eleventyConfig.addShortcode(
+    "ruDate",
+    () => `${new Date().toLocaleDateString("ru-ru", dateOptions)}`
+  );
+  eleventyConfig.addShortcode(
+    "zhDate",
+    () => `${new Date().toLocaleDateString("zh-cn", dateOptions)}`
+  );
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
   eleventyConfig.addShortcode("packageVersion", () => `v${packageVersion}`);
   eleventyConfig.addShortcode("randomGrammar", () => {
