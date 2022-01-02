@@ -27,7 +27,7 @@ collections:
         name: "tags"
         multiple: true
         create: true
-        options: ["general", "created", "python", "config.yml"]
+        options: ["general", "russian", "chinese"]
   - label: "Settings"
     name: "settings"
     editor:
