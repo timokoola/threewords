@@ -1,6 +1,6 @@
 ---
 title: "New Chinese Word of the Day: Cryptocurrency"
-date: 2022-01-02T21:25:09.107Z
+date: 2022-01-02T21:45:21.890Z
 tags:
   - general
 ---
