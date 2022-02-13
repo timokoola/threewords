@@ -1,5 +1,6 @@
 ---
 title: "Clozemaster Rate Calculator"
+description: "Calculate Daily Goals for Studying"
 date: 2022-02-10
 ---
 
