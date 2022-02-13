@@ -1,0 +1,28 @@
+.cm-card {
+  padding: 1em;
+  color: white;
+  background: $tdbc-color-primary;
+  border-radius: 0.5em;
+  margin: 1em;
+  .input-row,
+  .result-row {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    align-content: flex-start;
+    justify-content: space-between;
+    padding: 0em 1em 1em 1em;
+    label {
+      flex-basis: 30ch;
+      font-weight: bold;
+      flex-grow: 1;
+      flex-shrink: 0;
+    }
+    input {
+      min-width: 24ch;
+    }
+    select {
+      min-width: 20ch;
+    }
+  }
+}

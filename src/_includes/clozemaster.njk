@@ -1,0 +1,22 @@
+<section class="cm-card flow">
+    <h3>Clozemaster Target Per Day</h3>
+    <div x-data="{target: $persist(19991), current: $persist(0), today: new Date(), daysLeft() {return Math.floor((new Date(this.today.getFullYear(), 11, 31)
+ - this.today) / 84600000)}, dailyTarget() {return Math.round((this.target - this.current) / this.studyDaysLeft())}, wkday() { return this.today.getDay()}, weeksLeft() { return Math.floor(this.daysLeft() / 7)}, studyDaysLeft() {return this.daysLeft() + this.weeksLeft()}}">
+        <div class="input-row">
+            <label for="target">Items to Study</label>
+            <input type="number" id="target" name="target" min="0" max="20000" x-model="target"/>
+        </div>
+        <div class="input-row">
+            <label for="current">Items Studied</label>
+            <input type="number" id="current" name="current" min="0" max="20000" x-model="current"/>
+        </div>
+        <div class="result-row">
+            <div>Net Daily Target / Gross Daily Target / Saturday Target</div>
+            <div x-text="`${dailyTarget()} / ${Math.ceil((target-current)/daysLeft())} / ${dailyTarget() * 2}`"></div>
+        </div>
+        <div class="result-row">
+            <div>Days/Saturdays Left</div>
+            <div x-text="`${daysLeft()} / ${weeksLeft()}`"></div>
+        </div>
+    </div>
+</section>
