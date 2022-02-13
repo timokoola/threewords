@@ -1,0 +1,26 @@
+.pronunciation {
+  margin: 0 auto;
+  aspect-ratio: 1;
+  max-width: 300px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  place-items: center;
+  justify-content: center;
+  padding: 1em;
+  margin: 1em;
+  background: $tdbc-color-primary;
+  border-radius: 1em;
+  ruby {
+    font-weight: bold;
+    font-size: 4em;
+  }
+  rt {
+    font-size: 1rem;
+  }
+  dd {
+    margin-top: 0.5rem;
+  }
+}

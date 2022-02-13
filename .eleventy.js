@@ -66,10 +66,10 @@ module.exports = function (eleventyConfig) {
     ${hanzi}<rp>(</rp><rt>${pinyined}</rt><rp>)</rp>
     </ruby>`;
     if (definition) {
-      return `<dl style="display: flex; flex-direction: row;">
+      return `<dl class="pronunciation">
       <dt>
       ${ruby}</dt>
-      <dd style="margin-left: 1em;">${definition}</dd>
+      <dd>${definition}</dd>
       </dl>`;
     } else {
       return ruby;
